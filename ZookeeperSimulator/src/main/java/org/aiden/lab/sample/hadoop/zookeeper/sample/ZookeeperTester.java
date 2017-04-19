@@ -1,3 +1,5 @@
+package org.aiden.lab.sample.hadoop.zookeeper.sample;
+
 import org.apache.zookeeper.*;
 
 import java.io.IOException;
@@ -12,7 +14,7 @@ public class ZookeeperTester {
     public Watcher watcher;
 
     public ZookeeperTester() throws IOException {
-        //initwatcher与Zookeeper instance
+        //init Watcher and Zookeeper instance
         watcher = (event) -> System.out.println("monitor event ："+ event.toString());
         zk= new ZooKeeper("localhost:2181", 60*60,this.watcher);
     }
@@ -29,13 +31,6 @@ public class ZookeeperTester {
     //close the Zookeeper instance
     public void ZKclose() throws InterruptedException{
         zk.close();
-    }
-
-    public static void main(String[] args) throws IOException, InterruptedException, KeeperException {
-        ZookeeperTester zookeeperTester = new ZookeeperTester();
-        zookeeperTester.createZKInstance();
-        zookeeperTester.ZKclose();
-
     }
 
 }
