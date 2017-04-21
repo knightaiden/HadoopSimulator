@@ -25,7 +25,6 @@ public class ZookeeperTester {
         String reslut = new String(zk.getData("/test", watcher, null));
         System.out.println(reslut);
         zk.delete("/test",-1);
-
     }
 
     //close the Zookeeper instance
@@ -33,4 +32,7 @@ public class ZookeeperTester {
         zk.close();
     }
 
+    public ZooKeeper getZk() {
+        return zk;
+    }
 }
