@@ -16,7 +16,7 @@ public class ZookeeperTester {
     public ZookeeperTester() throws IOException {
         //init Watcher and Zookeeper instance
         watcher = (event) -> System.out.println("monitor event ："+ event.toString());
-        zk= new ZooKeeper("localhost:2181", 60*60,this.watcher);
+        zk= new ZooKeeper("localhost:2181", 60*60*1000*100,this.watcher);
     }
 
     public void createZKInstance() throws KeeperException, InterruptedException {
